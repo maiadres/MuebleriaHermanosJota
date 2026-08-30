@@ -1,25 +1,358 @@
-body {
-  font-family: "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-  font-size: 1rem;
-  line-height: 1.6;
-  color: #333333;
-  margin: 0;
-  background-color: #faf8f5;
-}
+/* Manual de marca Hermanos Jota
+   Siena tostado: #A0522D
+   Verde salvia: #87A96B
+   Alabastro cálido: #F5E6D3
+   Vara de oro: #D4A437
+   Rosa polvoriento: #C47A6D
+   Texto principal: #3D2E24
+   Texto secundario: #5C4A3A
+   Títulos: Playfair Display
+   Cuerpo: Inter
+*/
 
-h1 {
-  color: #4a3728;
-}
-
-.tarjeta-mueble {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
-  background-color: #f5f5f5;
-  border: 1px solid #444444;
-  padding: 20px;
-  margin: 15px;
+}
+
+body {
+  font-family: "Inter", system-ui, -apple-system, sans-serif;
+  font-size: 1.2rem;
+  font-weight: 400;
+  line-height: 1.6;
+  color: #3D2E24;
+  margin: 0;
+  background-color: #F5E6D3;
+}
+
+h1,h2,h3 {
+  font-family: "Playfair Display", Georgia, "Times New Roman", serif;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #A0522D;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/*Header*/
+header {
+  background-color: #F5E6D3;
+  border-bottom: 1px solid #D4A437;
+  position: sticky;
+  top: 0;
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  max-width: 100%;
+  padding: 0.20rem 1.5rem;
+  min-height: 65px;
+}
+.logo{
+  display: block;
+  width: 42px;
+  height: auto;
+}
+.logo-link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+}
+
+.logo-wordmark {
+  font-family: "Playfair Display", Georgia, "Times New Roman", serif;
+  font-size: 1.35rem;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #A0522D;
+  line-height: 1.2;
+  white-space: nowrap;
+}
+/*Navegación*/
+.main-nav{
+  margin-left:auto;
+  margin-right: 1.5rem;
+}
+
+.main-nav ul {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.main-nav a {
+  display: block;
+  font-family: "Inter", system-ui, -apple-system, sans-serif;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #5C4A3A;
+  padding: 0.625rem 1rem;
+  border-radius: 2px;
+  position: relative;
+}
+
+.main-nav a::after {
+  content: "";
+  position: absolute;
+  bottom: 0.35rem;
+  left: 1rem;
+  right: 1rem;
+  height: 1px;
+  background-color: #D4A437;
+  transform: scaleX(0);
+}
+
+.main-nav a:hover,
+.main-nav a:focus-visible {
+  color: #A0522D;
+}
+
+.main-nav a:hover::after,
+.main-nav a:focus-visible::after {
+  transform: scaleX(1);
+}
+
+.main-nav a:focus-visible {
+  outline: 2px solid #D4A437;
+  outline-offset: 2px;
+}
+
+/* Hero banner */
+.hero-banner {
+  display: grid;
+  grid-template-columns: 1.2fr 1.2fr;
+  align-items: center;
+  align-items: stretch;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 4rem 0;
+  gap: 1.5rem;
+}
+
+.hero-banner h1 {
+  margin: 0;
+  font-size: 2.8rem;
+  text-align: left;
+  line-height: 1.1;
+}
+
+.hero-banner strong {
+  font-weight: 500;
+  color: #A0522D;
+}
+.hero-contenido {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1.5rem;
+}
+.hero-acciones {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.btn-primario {
+  font-family: "Inter", system-ui, sans-serif;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 0.8rem 1.5rem;
+  border-radius: 30px;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background-color: #A0522D;
+  color: #F5E6D3;
+  border: 1px solid #A0522D;
+}
+.hero-etiquetas {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-top: 0.5rem;
+}
+
+.etiqueta {
+  background-color: rgba(92, 74, 58, 0.05);
+  border: 1px solid #E5D5C5;
+  padding: 0.5rem 1.2rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: #5C4A3A;
+}
+/* Etiqueta "Sostenible" */
+.hero-etiquetas .etiqueta:nth-child(1) {
+  border-left: 2px solid #87A96B; 
+}
+
+/* Etiqueta "Artesanal"*/
+.hero-etiquetas .etiqueta:nth-child(2) {
+  border-left: 2px solid #A0522D;
+}
+
+/*  Etiqueta "Hecho para durar" */
+.hero-etiquetas .etiqueta:nth-child(3) {
+  border-left: 2px solid #D4A437;
+}
+.hero-imagen {
+  width: 100%;
+  height: 100%;
+  min-height: 450px;
+  display: flex;
+}
+
+.imagen-hero {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 16px;
+}
+/*Productos destacados */
+.productos {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 1rem 1.5rem 3rem;
+}
+
+#titulo-productos {
+  text-align: center;
+  margin: 0 0 3rem 0;
+  font-family: "Playfair Display", Georgia, "Times New Roman", serif;
+  color: #A0522D;
+  font-weight: 400;
+  font-size: 2.2rem;
+  letter-spacing: 0.15em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+#titulo-productos::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 2px;
+  background-color: #D4A437; /* El color Vara de Oro del manual */
+}
+.lista-productos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+.tarjeta-mueble {
+  background-color: #E5D5C5; /* Un blanco roto muy sutil */
+  border: 1px solid #E5D5C5;
+  border-left: 3px solid #D4A437;
+  padding: 1.25rem 1.5rem;
+  border-radius: 20px;
+  overflow: hidden;
+  padding: 0;
+  display:flex;
+  flex-direction: column;
+}
+.tarjeta-mueble h3 {
+  font-family: "Playfair Display", Georgia, serif;
+  font-weight: 700; 
+  font-size: 1.2rem;
+  color: #A0522D;
+  letter-spacing: 0.05em;
+  margin: 0;
+  text-align: left;
+  padding: 0 1.5rem 1.5rem 1.5rem; 
+}
+.contenedor-imagen{
+  height: 400px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 1rem 0 1rem;
+}
+.contenedor-imagen img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: cover;
+  mix-blend-mode: multiply;
+  transform: scale(1.2); 
+}
+
+/*Footer*/
+footer {
+  background-color: #A0522D;;
+  color: #F5E6D3;
+  border-top: 2px solid #D4A437;
+  text-align: center;
+  padding: 2rem 1.5rem;
+  font-size: 0.8125rem;
+  font-weight: 300;
+  letter-spacing: 0.02em;
+}
+footer p{
+  margin: 0;
+}
+/* Diseño Responsive*/
+@media (min-width: 769px) {
+  .logo {
+    width: 60px;
+  }
+
+  .logo-wordmark {
+    font-size: 1.5rem;
+  }
 }
 
 @media (max-width: 768px) {
+  .header-inner {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.5rem;
+    padding: 0.75rem 1rem;
+  }
+
+  .logo-link {
+    justify-content: center;
+    padding: 0.5rem 0;
+  }
+
+  .logo {
+    width: 48px;
+  }
+
+  .logo-wordmark {
+    font-size: 1.15rem;
+  }
+
+  .main-nav ul {
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0;
+  }
+
+  .main-nav a {
+    font-size: 0.75rem;
+    padding: 0.5rem 0.75rem;
+  }
+
+  .hero-banner {
+    padding-top: 2rem;
+  }
+
   h1 {
     font-size: 1.5rem;
   }
@@ -31,9 +364,28 @@ h1 {
   h3 {
     font-size: 1.1rem;
   }
+}
+/* El estilo del carrito y su contador */
+.carrito-header {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 1.7rem;
+  cursor: pointer;
+}
 
-  .tarjeta-mueble {
-    width: 100%;
-    margin: 15px 0;
+/*contador del carrito*/
+.badge-contador {
+  background-color: #C47A6D; 
+  color: white;
+  font-size: 0.7rem;
+  font-weight: bold;
+  padding: 2px 8px;
+  border-radius: 50%; 
+  }
+
+@media (min-width: 1200px) {
+  .logo {
+    width: 72px;
   }
 }

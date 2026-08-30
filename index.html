@@ -4,63 +4,59 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Mueblería Hermanos Jota — Más de 30 años de tradición en muebles de calidad.">
-  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/index.js" defer></script>
   <title>Mueblería Hermanos Jota</title>
 </head>
 <body>
-
   <header>
-    <a href="index.html" aria-label="Ir al inicio">
-      <strong>Mueblería Hermanos Jota</strong>
-    </a>
-
-    <nav aria-label="Navegación principal">
-      <ul>
-        <li><a href="#inicio">Inicio</a></li>
-        <li><a href="#productos">Productos</a></li>
-        <li><a href="#nosotros">Nosotros</a></li>
-        <li><a href="#contacto">Contacto</a></li>
-      </ul>
-    </nav>
+    <div class="header-inner">
+      <a href="index.html" class="logo-link" aria-label="Hermanos Jota — Inicio">
+        <img src="imagenes/logo.svg" alt="logo" class="logo" width="120" height="120">
+        <span class="logo-wordmark">Hermanos Jota</span>
+      </a>
+      <nav class="main-nav" aria-label="Navegación principal">
+        <ul>
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="productos.html">Productos</a></li>
+          <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+      </nav>
+      <div class="carrito-header" aria-label="Carrito de compras">
+        <span aria-hidden="true">🛒</span>
+        <span id="contador-carrito" class="badge-contador">0</span>
+      </div>
+    </div>
+    
+  </div>
   </header>
 
   <main>
-    <section id="inicio" aria-labelledby="titulo-principal">
-      <h1 id="titulo-principal">Mueblería Hermanos Jota</h1>
-      <p>
-        Desde hace más de <strong>30 años</strong>, Hermanos Jota fabrica y comercializa
-        muebles de calidad con dedicación artesanal. Nuestra tradición familiar se refleja
-        en cada pieza: diseños pensados para durar, materiales seleccionados y un trato
-        cercano con cada cliente que confía en nosotros para amueblar su hogar.
-      </p>
+    <section class="hero-banner">
+      <div class="hero-contenido">
+        <h1>Diseño que trasciende en el tiempo</h1>
+        <p>Creamos muebles únicos, pensados para convertirse en tu próxima herencia <strong>familiar</strong></p>
+        <div class="hero-acciones">
+        <a href="productos.html" class="btn-primario">Explorar nuestra colección &rarr;</a>
+        </div>
+        <div class="hero-etiquetas">
+          <span class="etiqueta">Sostenible</span>
+          <span class="etiqueta">Artesanal</span>
+          <span class="etiqueta">Hecho para durar</span>
+        </div>
+      </div>
+      <div class="hero-imagen">
+      <img src="imagenes/imagen-hero-banner.png" alt="" class="imagen-hero" width="120" height="120">
+      </div>
     </section>
 
-    <section id="productos" aria-labelledby="titulo-productos">
+    <section class="productos" id="productos" aria-labelledby="titulo-productos">
       <h2 id="titulo-productos">Productos destacados</h2>
-
-      <article class="tarjeta-mueble">
-        <h3>Mesa de comedor rústica</h3>
-        <p>Mesa de madera maciza para 6 personas, ideal para reuniones familiares.</p>
-        <p><strong>Precio:</strong> $450.000</p>
-      </article>
-
-      <article class="tarjeta-mueble">
-        <h3>Sillón de tres cuerpos</h3>
-        <p>Sillón tapizado en tela resistente, con estructura de madera noble.</p>
-        <p><strong>Precio:</strong> $320.000</p>
-      </article>
-
-      <article class="tarjeta-mueble">
-        <h3>Estantería modular</h3>
-        <p>Estantería de 5 niveles, perfecta para organizar libros y decoración.</p>
-        <p><strong>Precio:</strong> $180.000</p>
-      </article>
-
-      <article class="tarjeta-mueble">
-        <h3>Cama matrimonial con cabecera</h3>
-        <p>Cama de 2 plazas con cabecera tapizada y base reforzada.</p>
-        <p><strong>Precio:</strong> $520.000</p>
-      </article>
+      <div class="lista-productos">
+      </div>
     </section>
   </main>
 
