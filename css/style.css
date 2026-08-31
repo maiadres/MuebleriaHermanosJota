@@ -365,24 +365,13 @@ footer p{
     font-size: 1.1rem;
   }
 }
-/* El estilo del carrito y su contador */
+
 .carrito-header {
   display: flex;
-  align-items: center;
-  gap: 5px;
-  font-size: 1.7rem;
-  cursor: pointer;
+  padding:0%;
+  gap: 1px;
+  font-size: 2.7rem;
 }
-
-/*contador del carrito*/
-.badge-contador {
-  background-color: #C47A6D; 
-  color: white;
-  font-size: 0.7rem;
-  font-weight: bold;
-  padding: 2px 8px;
-  border-radius: 50%; 
-  }
 
 @media (min-width: 1200px) {
   .logo {
