@@ -1,0 +1,122 @@
+/* Página de contacto — layout y formulario */
+
+.pagina-contacto {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.pagina-contacto main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.contacto {
+  display: flex;
+  flex-direction: column;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem 3rem;
+  gap: 1.5rem;
+}
+
+.contacto h1 {
+  margin: 0;
+  font-size: 2rem;
+  text-align: center;
+}
+
+.contacto-intro {
+  margin: 0;
+  text-align: center;
+  color: #5C4A3A;
+  font-size: 1rem;
+}
+
+.formulario-contacto {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.campo-formulario {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.campo-formulario label {
+  font-size: 0.8125rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #5C4A3A;
+}
+
+.campo-formulario input,
+.campo-formulario textarea {
+  font-family: "Inter", system-ui, sans-serif;
+  font-size: 1rem;
+  padding: 0.75rem 1rem;
+  border: 1px solid #E5D5C5;
+  border-radius: 8px;
+  background-color: #fff;
+  color: #3D2E24;
+  transition: border-color 0.2s ease;
+}
+
+.campo-formulario input:focus,
+.campo-formulario textarea:focus {
+  outline: none;
+  border-color: #D4A437;
+  box-shadow: 0 0 0 2px rgba(212, 164, 55, 0.25);
+}
+
+.campo-formulario input.campo-invalido,
+.campo-formulario textarea.campo-invalido {
+  border-color: #C47A6D;
+}
+
+.campo-formulario textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.error-campo {
+  font-size: 0.8125rem;
+  color: #C47A6D;
+  min-height: 1.2em;
+}
+
+.mensaje-exito {
+  padding: 1rem 1.25rem;
+  background-color: rgba(135, 169, 107, 0.15);
+  border: 1px solid #87A96B;
+  border-left: 3px solid #87A96B;
+  border-radius: 8px;
+  color: #3D2E24;
+  font-size: 0.9375rem;
+  text-align: center;
+}
+
+.formulario-contacto .btn-primario {
+  align-self: flex-start;
+  margin-top: 0.5rem;
+}
+
+.formulario-contacto .btn-primario:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+@media (max-width: 768px) {
+  .contacto h1 {
+    font-size: 1.5rem;
+  }
+
+  .formulario-contacto .btn-primario {
+    align-self: stretch;
+    text-align: center;
+  }
+}

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Contactá con Mueblería Hermanos Jota — Estamos para ayudarte con tus consultas.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=shopping_cart" />
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/contacto.css">
+  <script src="js/carrito.js" defer></script>
+  <script src="js/contacto.js" defer></script>
+  <title>Contacto — Mueblería Hermanos Jota</title>
+</head>
+<body class="pagina-contacto">
+  <header>
+    <div class="header-inner">
+      <a href="index.html" class="logo-link" aria-label="Hermanos Jota — Inicio">
+        <img src="imagenes/logo.svg" alt="logo" class="logo" width="120" height="120">
+        <span class="logo-wordmark">Hermanos Jota</span>
+      </a>
+      <nav class="main-nav" aria-label="Navegación principal">
+        <ul>
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="productos.html">Productos</a></li>
+          <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+      </nav>
+      <button type="button" class="carrito-header" aria-label="Carrito de compras">
+        <span class="material-symbols-outlined" aria-hidden="true">shopping_cart</span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <section class="contacto" aria-labelledby="titulo-contacto">
+      <h1 id="titulo-contacto">Contacto</h1>
+      <p class="contacto-intro">Si tenés alguna pregunta sobre nuestros muebles, no dudes en escribirnos.</p>
+
+      <div id="mensaje-exito" class="mensaje-exito" role="alert" tabindex="-1" hidden>
+        ¡Gracias por contactarnos! Te responderemos a la brevedad.
+      </div>
+
+      <form id="formulario-contacto" class="formulario-contacto" novalidate>
+        <div class="campo-formulario">
+          <label for="nombre">Nombre</label>
+          <input type="text" id="nombre" name="nombre" autocomplete="name" required>
+          <span id="error-nombre" class="error-campo" role="alert"></span>
+        </div>
+
+        <div class="campo-formulario">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" autocomplete="email" required>
+          <span id="error-email" class="error-campo" role="alert"></span>
+        </div>
+
+        <div class="campo-formulario">
+          <label for="mensaje">Mensaje</label>
+          <textarea id="mensaje" name="mensaje" rows="5" required></textarea>
+          <span id="error-mensaje" class="error-campo" role="alert"></span>
+        </div>
+
+        <button type="submit" class="btn-primario">Enviar mensaje</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Mueblería Hermanos Jota. Todos los derechos reservados.</p>
+  </footer>
+
+</body>
+</html>
