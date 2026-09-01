@@ -122,7 +122,7 @@ function renderProductGrid(items) {
 
   if (!grid) return;
 
-  grid.innerHTML = items
+ grid.innerHTML = items
     .map(
       (producto) => `
         <article class="product-card">
