@@ -1,15 +1,3 @@
-/* Manual de marca Hermanos Jota
-   Siena tostado: #A0522D
-   Verde salvia: #87A96B
-   Alabastro cálido: #F5E6D3
-   Vara de oro: #D4A437
-   Rosa polvoriento: #C47A6D
-   Texto principal: #3D2E24
-   Texto secundario: #5C4A3A
-   Títulos: Playfair Display
-   Cuerpo: Inter
-*/
-
 *,
 *::before,
 *::after {
@@ -41,7 +29,6 @@ a {
   text-decoration: none;
 }
 
-/*Header*/
 header {
   background-color: #F5E6D3;
   border-bottom: 1px solid #D4A437;
@@ -81,7 +68,6 @@ header {
   white-space: nowrap;
 }
 
-/*Navegación*/
 .main-nav {
   margin-left: auto;
   margin-right: 1.5rem;
@@ -135,7 +121,6 @@ header {
   outline-offset: 2px;
 }
 
-/* Hero banner */
 .hero-banner {
   display: grid;
   grid-template-columns: 1.2fr 1.2fr;
@@ -205,17 +190,14 @@ header {
   color: #5C4A3A;
 }
 
-/* Etiqueta "Sostenible" */
 .hero-etiquetas .etiqueta:nth-child(1) {
   border-left: 2px solid #87A96B;
 }
 
-/* Etiqueta "Artesanal"*/
 .hero-etiquetas .etiqueta:nth-child(2) {
   border-left: 2px solid #A0522D;
 }
 
-/*  Etiqueta "Hecho para durar" */
 .hero-etiquetas .etiqueta:nth-child(3) {
   border-left: 2px solid #D4A437;
 }
@@ -234,7 +216,6 @@ header {
   border-radius: 16px;
 }
 
-/*Productos destacados */
 .productos {
   max-width: 1100px;
   margin: 0 auto;
@@ -261,7 +242,6 @@ header {
   width: 60px;
   height: 2px;
   background-color: #D4A437;
-  /* El color Vara de Oro del manual */
 }
 
 .lista-productos {
@@ -272,7 +252,6 @@ header {
 
 .tarjeta-mueble {
   background-color: #E5D5C5;
-  /* Un blanco roto muy sutil */
   border: 1px solid #E5D5C5;
   border-left: 3px solid #D4A437;
   padding: 1.25rem 1.5rem;
@@ -311,7 +290,6 @@ header {
   transform: scale(1.2);
 }
 
-/*Footer*/
 footer {
   background-color: #A0522D;
   ;
@@ -327,18 +305,46 @@ footer {
 footer p {
   margin: 0;
 }
-
-/* Diseño Responsive*/
-@media (min-width: 769px) {
-  .logo {
-    width: 60px;
-  }
-
-  .logo-wordmark {
-    font-size: 1.5rem;
-  }
+.carrito-header {
+  display: flex;
+  align-items: center;
+  position: relative;
+  padding: 0.25rem;
+  gap: 0;
+  font-size: 2rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #5C4A3A;
 }
 
+.carrito-header:hover,
+.carrito-header:focus-visible {
+  color: #A0522D;
+}
+
+.carrito-header:focus-visible {
+  outline: 2px solid #D4A437;
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+.carrito-contador {
+  position: absolute;
+  top: -4px;
+  right: -8px;
+  min-width: 1.25rem;
+  height: 1.25rem;
+  padding: 0 0.3rem;
+  background-color: #A0522D;
+  color: #F5E6D3;
+  font-family: "Inter", system-ui, sans-serif;
+  font-size: 0.65rem;
+  font-weight: 700;
+  line-height: 1.25rem;
+  text-align: center;
+  border-radius: 999px;
+}
 @media (max-width: 768px) {
   .header-inner {
     flex-direction: column;
@@ -387,51 +393,4 @@ footer p {
     font-size: 1.1rem;
   }
 
-}
-
-.carrito-header {
-  display: flex;
-  align-items: center;
-  position: relative;
-  padding: 0.25rem;
-  gap: 0;
-  font-size: 2rem;
-  background: none;
-  border: none;
-  cursor: pointer;
-  color: #5C4A3A;
-}
-
-.carrito-header:hover,
-.carrito-header:focus-visible {
-  color: #A0522D;
-}
-
-.carrito-header:focus-visible {
-  outline: 2px solid #D4A437;
-  outline-offset: 2px;
-  border-radius: 2px;
-}
-
-.carrito-contador {
-  position: absolute;
-  top: -4px;
-  right: -8px;
-  min-width: 1.25rem;
-  height: 1.25rem;
-  padding: 0 0.3rem;
-  background-color: #A0522D;
-  color: #F5E6D3;
-  font-family: "Inter", system-ui, sans-serif;
-  font-size: 0.65rem;
-  font-weight: 700;
-  line-height: 1.25rem;
-  text-align: center;
-  border-radius: 999px;
-}
-
-@media (min-width: 1200px) {
-  .logo {
-    width: 72px;
-  }
 }
