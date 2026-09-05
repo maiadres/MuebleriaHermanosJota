@@ -134,7 +134,7 @@ header {
 
 .hero-banner h1 {
   margin: 0;
-  font-size: 2.8rem;
+  font-size: 1.8rem;
   text-align: left;
   line-height: 1.1;
 }
@@ -166,7 +166,7 @@ header {
   letter-spacing: 0.08em;
   padding: 0.8rem 1.5rem;
   border-radius: 30px;
-  font-size: 0.85rem;
+  font-size: 0.65rem;
   cursor: pointer;
   transition: all 0.3s ease;
   background-color: #A0522D;
@@ -186,7 +186,7 @@ header {
   border: 1px solid #E5D5C5;
   padding: 0.5rem 1.2rem;
   border-radius: 20px;
-  font-size: 0.8rem;
+  font-size: 0.66rem;
   font-weight: 500;
   color: #5C4A3A;
 }
@@ -230,7 +230,7 @@ header {
   font-family: "Playfair Display", Georgia, "Times New Roman", serif;
   color: #A0522D;
   font-weight: 400;
-  font-size: 2.2rem;
+  font-size: 1.6rem;
   letter-spacing: 0.15em;
   display: flex;
   flex-direction: column;
@@ -266,7 +266,7 @@ header {
 .tarjeta-mueble h3 {
   font-family: "Playfair Display", Georgia, serif;
   font-weight: 700;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   color: #A0522D;
   letter-spacing: 0.05em;
   margin: 0;
@@ -275,12 +275,12 @@ header {
 }
 
 .contenedor-imagen {
-  height: 400px;
+  height: 300px;
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 1rem 1rem 0 1rem;
+  padding: 1rem 0.5rem 0 1rem;
 }
 
 .contenedor-imagen img {
