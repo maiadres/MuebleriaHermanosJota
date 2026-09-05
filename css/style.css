@@ -1,15 +1,3 @@
-/* Manual de marca Hermanos Jota
-   Siena tostado: #A0522D
-   Verde salvia: #87A96B
-   Alabastro cálido: #F5E6D3
-   Vara de oro: #D4A437
-   Rosa polvoriento: #C47A6D
-   Texto principal: #3D2E24
-   Texto secundario: #5C4A3A
-   Títulos: Playfair Display
-   Cuerpo: Inter
-*/
-
 *,
 *::before,
 *::after {
@@ -41,7 +29,6 @@ a {
   text-decoration: none;
 }
 
-/*Header*/
 header {
   background-color: #F5E6D3;
   border-bottom: 1px solid #D4A437;
@@ -52,6 +39,7 @@ header {
 .header-inner {
   display: flex;
   align-items: center;
+  position: relative;
   max-width: 100%;
   padding: 0.20rem 1.5rem;
   min-height: 65px;
@@ -81,7 +69,6 @@ header {
   white-space: nowrap;
 }
 
-/*Navegación*/
 .main-nav {
   margin-left: auto;
   margin-right: 1.5rem;
@@ -135,7 +122,6 @@ header {
   outline-offset: 2px;
 }
 
-/* Hero banner */
 .hero-banner {
   display: grid;
   grid-template-columns: 1.2fr 1.2fr;
@@ -145,13 +131,6 @@ header {
   margin: 0 auto;
   padding: 4rem 0;
   gap: 1.5rem;
-}
-
-.hero-banner h1 {
-  margin: 0;
-  font-size: 2.8rem;
-  text-align: left;
-  line-height: 1.1;
 }
 
 .hero-banner strong {
@@ -164,6 +143,18 @@ header {
   flex-direction: column;
   justify-content: center;
   gap: 1.5rem;
+  padding: 0 1.7rem;
+}
+
+.hero-contenido h1 {
+  margin: 0;
+  font-size: 1.75rem;
+  text-align: left;
+  line-height: 1.1;
+}
+
+.hero-contenido p {
+  font-size: 1.2rem;
 }
 
 .hero-acciones {
@@ -180,7 +171,7 @@ header {
   letter-spacing: 0.08em;
   padding: 0.8rem 1.5rem;
   border-radius: 30px;
-  font-size: 0.85rem;
+  font-size: 0.65rem;
   cursor: pointer;
   transition: all 0.3s ease;
   background-color: #A0522D;
@@ -200,22 +191,19 @@ header {
   border: 1px solid #E5D5C5;
   padding: 0.5rem 1.2rem;
   border-radius: 20px;
-  font-size: 0.8rem;
+  font-size: 0.66rem;
   font-weight: 500;
   color: #5C4A3A;
 }
 
-/* Etiqueta "Sostenible" */
 .hero-etiquetas .etiqueta:nth-child(1) {
   border-left: 2px solid #87A96B;
 }
 
-/* Etiqueta "Artesanal"*/
 .hero-etiquetas .etiqueta:nth-child(2) {
   border-left: 2px solid #A0522D;
 }
 
-/*  Etiqueta "Hecho para durar" */
 .hero-etiquetas .etiqueta:nth-child(3) {
   border-left: 2px solid #D4A437;
 }
@@ -225,6 +213,7 @@ header {
   height: 100%;
   min-height: 450px;
   display: flex;
+  padding: 0 1.7rem;
 }
 
 .imagen-hero {
@@ -234,7 +223,6 @@ header {
   border-radius: 16px;
 }
 
-/*Productos destacados */
 .productos {
   max-width: 1100px;
   margin: 0 auto;
@@ -247,7 +235,7 @@ header {
   font-family: "Playfair Display", Georgia, "Times New Roman", serif;
   color: #A0522D;
   font-weight: 400;
-  font-size: 2.2rem;
+  font-size: 1.6rem;
   letter-spacing: 0.15em;
   display: flex;
   flex-direction: column;
@@ -261,7 +249,6 @@ header {
   width: 60px;
   height: 2px;
   background-color: #D4A437;
-  /* El color Vara de Oro del manual */
 }
 
 .lista-productos {
@@ -272,13 +259,11 @@ header {
 
 .tarjeta-mueble {
   background-color: #E5D5C5;
-  /* Un blanco roto muy sutil */
   border: 1px solid #E5D5C5;
   border-left: 3px solid #D4A437;
   padding: 1.25rem 1.5rem;
   border-radius: 20px;
   overflow: hidden;
-  padding: 0;
   display: flex;
   flex-direction: column;
 }
@@ -286,7 +271,7 @@ header {
 .tarjeta-mueble h3 {
   font-family: "Playfair Display", Georgia, serif;
   font-weight: 700;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   color: #A0522D;
   letter-spacing: 0.05em;
   margin: 0;
@@ -295,12 +280,13 @@ header {
 }
 
 .contenedor-imagen {
-  height: 400px;
+  height: 300px;
   width: 100%;
+  overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 1rem 1rem 0 1rem;
+  padding: 1rem 0.5rem 0 1rem;
 }
 
 .contenedor-imagen img {
@@ -309,12 +295,15 @@ header {
   object-fit: cover;
   mix-blend-mode: multiply;
   transform: scale(1.2);
+  transition: transform 0.4s ease;
 }
 
-/*Footer*/
+.tarjeta-mueble:hover .contenedor-imagen img {
+  transform: scale(1.3);
+}
+
 footer {
   background-color: #A0522D;
-  ;
   color: #F5E6D3;
   border-top: 2px solid #D4A437;
   text-align: center;
@@ -327,72 +316,11 @@ footer {
 footer p {
   margin: 0;
 }
-
-/* Diseño Responsive*/
-@media (min-width: 769px) {
-  .logo {
-    width: 60px;
-  }
-
-  .logo-wordmark {
-    font-size: 1.5rem;
-  }
-}
-
-@media (max-width: 768px) {
-  .header-inner {
-    flex-direction: column;
-    align-items: stretch;
-    gap: 0.5rem;
-    padding: 0.75rem 1rem;
-  }
-
-  .logo-link {
-    justify-content: center;
-    padding: 0.5rem 0;
-  }
-
-  .logo {
-    width: 48px;
-  }
-
-  .logo-wordmark {
-    font-size: 1.15rem;
-  }
-
-  .main-nav ul {
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 0;
-  }
-
-  .main-nav a {
-    font-size: 0.75rem;
-    padding: 0.5rem 0.75rem;
-  }
-
-  .hero-banner {
-    padding-top: 2rem;
-  }
-
-  h1 {
-    font-size: 1.5rem;
-  }
-
-  h2 {
-    font-size: 1.25rem;
-  }
-
-  h3 {
-    font-size: 1.1rem;
-  }
-
-}
-
 .carrito-header {
   display: flex;
   align-items: center;
   position: relative;
+  margin-left: 1rem;
   padding: 0.25rem;
   gap: 0;
   font-size: 2rem;
@@ -429,9 +357,84 @@ footer p {
   text-align: center;
   border-radius: 999px;
 }
-
-@media (min-width: 1200px) {
-  .logo {
-    width: 72px;
+@media (max-width: 768px) {
+  .header-inner {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1rem;
   }
+
+  .logo-link {
+    grid-column: 1 / -1;
+    grid-row: 1;
+    justify-content: center;
+    padding: 0.5rem 0;
+  }
+
+  .logo {
+    width: 48px;
+  }
+
+  .logo-wordmark {
+    font-size: 1.15rem;
+  }
+
+  .main-nav ul {
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0;
+  }
+
+  .main-nav {
+    grid-column: 1;
+    grid-row: 2;
+    margin: 0;
+  }
+
+  .carrito-header {
+    grid-column: 2;
+    grid-row: 2;
+    margin-left: 0.75rem;
+  }
+
+  .main-nav a {
+    font-size: 0.75rem;
+    padding: 0.5rem 0.75rem;
+  }
+
+  .hero-banner {
+    grid-template-columns: 1fr;
+    padding-top: 2rem;
+  }
+
+  .hero-contenido,
+  .hero-imagen {
+    width: 100%;
+  }
+
+  .hero-imagen {
+    height: auto;
+    min-height: 0;
+    padding: 0 1rem;
+  }
+
+  .imagen-hero {
+    height: auto;
+    aspect-ratio: 4 / 3;
+  }
+
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  h2 {
+    font-size: 1.25rem;
+  }
+
+  h3 {
+    font-size: 1.1rem;
+  }
+
 }
