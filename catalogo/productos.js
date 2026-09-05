@@ -327,7 +327,6 @@ function setupDetailPage() {
   name.textContent = selectedProduct.nombre;
   price.textContent = formatPrice(selectedProduct.precio);
   
-  // Muestra la descripción larga en la página de detalle (o la corta como respaldo)
   description.textContent = selectedProduct.descripcionLarga || selectedProduct.descripcion;
 
   if (specsContainer) {
