@@ -399,7 +399,24 @@ footer p {
   }
 
   .hero-banner {
+    grid-template-columns: 1fr;
     padding-top: 2rem;
+  }
+
+  .hero-contenido,
+  .hero-imagen {
+    width: 100%;
+  }
+
+  .hero-imagen {
+    height: auto;
+    min-height: 0;
+    padding: 0 1rem;
+  }
+
+  .imagen-hero {
+    height: auto;
+    aspect-ratio: 4 / 3;
   }
 
   h1 {
