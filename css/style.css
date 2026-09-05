@@ -39,14 +39,16 @@ header {
 .header-inner {
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
   max-width: 100%;
-  padding: 0.20rem 1.5rem;
+  padding: 0.75rem 1rem;
   min-height: 65px;
 }
 
 .logo {
   display: block;
   width: 42px;
+  max-width: 100%;
   height: auto;
 }
 
@@ -55,6 +57,7 @@ header {
   align-items: center;
   gap: 10px;
   text-decoration: none;
+  min-width: 0;
 }
 
 .logo-wordmark {
@@ -69,14 +72,17 @@ header {
 }
 
 .main-nav {
-  margin-left: auto;
-  margin-right: 1.5rem;
+  flex: 1 1 100%;
+  order: 3;
+  margin: 0;
 }
 
 .main-nav ul {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 0.25rem;
+  flex-wrap: wrap;
   list-style: none;
   margin: 0;
   padding: 0;
@@ -91,6 +97,9 @@ header {
   text-transform: uppercase;
   color: #5C4A3A;
   padding: 0.625rem 1rem;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
   border-radius: 2px;
   position: relative;
 }
@@ -122,13 +131,12 @@ header {
 }
 
 .hero-banner {
-  display: grid;
-  grid-template-columns: 1.2fr 1.2fr;
-  align-items: center;
+  display: flex;
+  flex-direction: column;
   align-items: stretch;
   max-width: 1400px;
   margin: 0 auto;
-  padding: 4rem 0;
+  padding: 2rem 0;
   gap: 1.5rem;
 }
 
@@ -142,7 +150,8 @@ header {
   flex-direction: column;
   justify-content: center;
   gap: 1.5rem;
-  padding: 0 1.7rem;
+  min-width: 0;
+  padding: 0 1rem;
 }
 
 .hero-contenido h1 {
@@ -154,6 +163,7 @@ header {
 
 .hero-contenido p {
   font-size: 1.2rem;
+  margin: 0;
 }
 
 .hero-acciones {
@@ -161,6 +171,7 @@ header {
   gap: 1rem;
   align-items: center;
   flex-wrap: wrap;
+  max-width: 100%;
 }
 
 .btn-primario {
@@ -176,6 +187,8 @@ header {
   background-color: #A0522D;
   color: #F5E6D3;
   border: 1px solid #A0522D;
+  max-width: 100%;
+  text-align: center;
 }
 
 .hero-etiquetas {
@@ -183,6 +196,7 @@ header {
   gap: 1rem;
   flex-wrap: wrap;
   margin-top: 0.5rem;
+  max-width: 100%;
 }
 
 .etiqueta {
@@ -209,15 +223,17 @@ header {
 
 .hero-imagen {
   width: 100%;
-  height: 100%;
-  min-height: 450px;
+  min-width: 0;
+  min-height: 260px;
   display: flex;
-  padding: 0 1.7rem;
+  padding: 0 1rem;
 }
 
 .imagen-hero {
   width: 100%;
-  height: 100%;
+  max-width: 100%;
+  height: auto;
+  min-height: 260px;
   object-fit: cover;
   border-radius: 16px;
 }
@@ -251,8 +267,8 @@ header {
 }
 
 .lista-productos {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  display: flex;
+  flex-wrap: wrap;
   gap: 2rem;
 }
 
@@ -265,6 +281,8 @@ header {
   overflow: hidden;
   display: flex;
   flex-direction: column;
+  flex: 1 1 100%;
+  min-width: 0;
 }
 
 .tarjeta-mueble h3 {
@@ -314,6 +332,9 @@ footer p {
   align-items: center;
   position: relative;
   padding: 0.25rem;
+  min-width: 44px;
+  min-height: 44px;
+  justify-content: center;
   gap: 0;
   font-size: 2rem;
   background: none;
@@ -349,52 +370,82 @@ footer p {
   text-align: center;
   border-radius: 999px;
 }
-@media (max-width: 768px) {
+
+@media (min-width: 600px) {
   .header-inner {
-    flex-direction: column;
-    align-items: stretch;
-    gap: 0.5rem;
-    padding: 0.75rem 1rem;
+    padding: 0.5rem 1.5rem;
   }
 
   .logo-link {
-    justify-content: center;
-    padding: 0.5rem 0;
+    flex: 1 1 auto;
   }
 
   .logo {
-    width: 48px;
+    width: 42px;
   }
 
-  .logo-wordmark {
-    font-size: 1.15rem;
+  .main-nav {
+    flex: 1 1 auto;
+    order: 0;
+    margin-left: auto;
+    margin-right: 1rem;
   }
 
   .main-nav ul {
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 0;
-  }
-
-  .main-nav a {
-    font-size: 0.75rem;
-    padding: 0.5rem 0.75rem;
+    justify-content: flex-end;
   }
 
   .hero-banner {
-    padding-top: 2rem;
+    padding: 3rem 0;
   }
 
-  h1 {
-    font-size: 1.5rem;
+  .hero-contenido {
+    padding: 0 1.7rem;
   }
 
-  h2 {
-    font-size: 1.25rem;
+  .hero-imagen {
+    padding: 0 1.7rem;
   }
 
-  h3 {
-    font-size: 1.1rem;
+  .tarjeta-mueble {
+    flex-basis: calc(50% - 1rem);
+  }
+}
+
+@media (min-width: 1024px) {
+  .header-inner {
+    flex-wrap: nowrap;
+    padding: 0.2rem 1.5rem;
   }
 
+  .logo {
+    width: 42px;
+  }
+
+  .main-nav {
+    margin-right: 1.5rem;
+  }
+
+  .hero-banner {
+    flex-direction: row;
+    align-items: stretch;
+    padding: 4rem 0;
+  }
+
+  .hero-contenido,
+  .hero-imagen {
+    flex: 1 1 0;
+  }
+
+  .hero-imagen {
+    min-height: 450px;
+  }
+
+  .imagen-hero {
+    height: 100%;
+  }
+
+  .tarjeta-mueble {
+    flex-basis: calc(33.333% - 1.334rem);
+  }
 }
