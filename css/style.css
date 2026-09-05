@@ -132,13 +132,6 @@ header {
   gap: 1.5rem;
 }
 
-.hero-banner h1 {
-  margin: 0;
-  font-size: 1.8rem;
-  text-align: left;
-  line-height: 1.1;
-}
-
 .hero-banner strong {
   font-weight: 500;
   color: #A0522D;
@@ -150,6 +143,17 @@ header {
   justify-content: center;
   gap: 1.5rem;
   padding: 0 1.7rem;
+}
+
+.hero-contenido h1 {
+  margin: 0;
+  font-size: 1.75rem;
+  text-align: left;
+  line-height: 1.1;
+}
+
+.hero-contenido p {
+  font-size: 1.2rem;
 }
 
 .hero-acciones {
