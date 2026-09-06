@@ -155,7 +155,6 @@ body {
 
 .product-card:hover,
 .product-card:focus-within {
-    transform: translateY(-5px);
     border-color: rgba(212, 164, 55, 0.35);
     box-shadow: 0 24px 42px rgba(61, 46, 36, 0.12);
 }
