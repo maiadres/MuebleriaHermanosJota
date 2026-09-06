@@ -1,4 +1,4 @@
-const CLAVE_CARRITO = 'carritoHermanosJota';
+const CLAVE_CARRITO = "carritoHermanosJota";
 let carrito = [];
 
 function leerCarrito() {
@@ -19,37 +19,39 @@ function cantidadTotal() {
 }
 
 function formatPrice(value) {
-  return new Intl.NumberFormat('es-AR', {
-    style: 'currency',
-    currency: 'ARS',
+  return new Intl.NumberFormat("es-AR", {
+    style: "currency",
+    currency: "ARS",
     maximumFractionDigits: 0,
   }).format(value);
 }
 
 function actualizarContadorCarrito() {
-  const badge = document.querySelector('.carrito-contador');
+  const badge = document.querySelector(".carrito-contador");
   if (!badge) return;
 
   const total = cantidadTotal();
   badge.textContent = total;
   badge.hidden = false;
-  badge.setAttribute('aria-label', `${total} productos en el carrito`);
+  badge.setAttribute("aria-label", `${total} productos en el carrito`);
 }
 
 function renderizarCarrito() {
-  const items = document.querySelector('.carrito-items');
-  const resumen = document.querySelector('.carrito-resumen');
+  const items = document.querySelector(".carrito-items");
+  const resumen = document.querySelector(".carrito-resumen");
   if (!items || !resumen) return;
 
   if (carrito.length === 0) {
     items.innerHTML = '<p class="carrito-vacio">Tu carrito está vacío.</p>';
-    resumen.querySelector('.carrito-total').textContent = formatPrice(0);
+    resumen.querySelector(".carrito-total").textContent = formatPrice(0);
     resumen.hidden = true;
     actualizarContadorCarrito();
     return;
   }
 
-  items.innerHTML = carrito.map((producto) => `
+  items.innerHTML = carrito
+    .map(
+      (producto) => `
     <article class="carrito-item">
       <img src="${producto.imagen}" alt="${producto.nombre}" class="carrito-item-imagen">
       <div class="carrito-item-info">
@@ -65,10 +67,15 @@ function renderizarCarrito() {
         <span aria-hidden="true">&times;</span>
       </button>
     </article>
-  `).join('');
+  `,
+    )
+    .join("");
 
-  const total = carrito.reduce((suma, producto) => suma + producto.precio * producto.cantidad, 0);
-  resumen.querySelector('.carrito-total').textContent = formatPrice(total);
+  const total = carrito.reduce(
+    (suma, producto) => suma + producto.precio * producto.cantidad,
+    0,
+  );
+  resumen.querySelector(".carrito-total").textContent = formatPrice(total);
   resumen.hidden = false;
   actualizarContadorCarrito();
 }
@@ -87,8 +94,10 @@ function cambiarCantidad(productId, cambio) {
 }
 
 function agregarProductoActual() {
-  const productId = Number(new URLSearchParams(window.location.search).get('id'));
-  if (!productId || typeof productos === 'undefined') return;
+  const productId = Number(
+    new URLSearchParams(window.location.search).get("id"),
+  );
+  if (!productId || typeof productos === "undefined") return;
 
   const producto = productos.find((item) => item.id === productId);
   if (!producto) return;
@@ -108,7 +117,7 @@ function agregarProductoActual() {
 
   guardarCarrito();
   renderizarCarrito();
-  document.querySelector('.carrito-panel')?.classList.add('is-open');
+  document.querySelector(".carrito-panel")?.classList.add("is-open");
 }
 
 function eliminarProducto(productId) {
@@ -118,16 +127,16 @@ function eliminarProducto(productId) {
 }
 
 function crearPanelCarrito(carritoHeader) {
-  let badge = carritoHeader.querySelector('.carrito-contador');
+  let badge = carritoHeader.querySelector(".carrito-contador");
   if (!badge) {
-    badge = document.createElement('span');
-    badge.className = 'carrito-contador';
+    badge = document.createElement("span");
+    badge.className = "carrito-contador";
     carritoHeader.appendChild(badge);
   }
 
-  const panel = document.createElement('aside');
-  panel.className = 'carrito-panel';
-  panel.setAttribute('aria-label', 'Carrito de compras');
+  const panel = document.createElement("aside");
+  panel.className = "carrito-panel";
+  panel.setAttribute("aria-label", "Carrito de compras");
   panel.innerHTML = `
     <div class="carrito-panel-header">
       <h2>Tu carrito</h2>
@@ -144,16 +153,16 @@ function crearPanelCarrito(carritoHeader) {
   `;
   document.body.appendChild(panel);
 
-  carritoHeader.addEventListener('click', () => {
-    panel.classList.toggle('is-open');
+  carritoHeader.addEventListener("click", () => {
+    panel.classList.toggle("is-open");
   });
-  panel.querySelector('.carrito-cerrar').addEventListener('click', () => {
-    panel.classList.remove('is-open');
+  panel.querySelector(".carrito-cerrar").addEventListener("click", () => {
+    panel.classList.remove("is-open");
   });
-  panel.addEventListener('click', (event) => {
+  panel.addEventListener("click", (event) => {
     event.stopPropagation();
-    const quantityButton = event.target.closest('.carrito-cantidad-btn');
-    const button = event.target.closest('.carrito-eliminar');
+    const quantityButton = event.target.closest(".carrito-cantidad-btn");
+    const button = event.target.closest(".carrito-eliminar");
     if (quantityButton) {
       cambiarCantidad(
         Number(quantityButton.dataset.productId),
@@ -163,19 +172,22 @@ function crearPanelCarrito(carritoHeader) {
     }
     if (button) eliminarProducto(Number(button.dataset.productId));
   });
-  document.addEventListener('click', (event) => {
-    if (!panel.contains(event.target) && !carritoHeader.contains(event.target)) {
-      panel.classList.remove('is-open');
+  document.addEventListener("click", (event) => {
+    if (
+      !panel.contains(event.target) &&
+      !carritoHeader.contains(event.target)
+    ) {
+      panel.classList.remove("is-open");
     }
   });
-  document.addEventListener('keydown', (event) => {
-    if (event.key === 'Escape') panel.classList.remove('is-open');
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") panel.classList.remove("is-open");
   });
 }
 
 function initCarrito() {
-  const carritoHeader = document.querySelector('.carrito-header');
-  const addButton = document.querySelector('.btn-primary');
+  const carritoHeader = document.querySelector(".carrito-header");
+  const addButton = document.querySelector(".btn-primary");
   if (!carritoHeader) return;
 
   carrito = leerCarrito();
@@ -183,11 +195,11 @@ function initCarrito() {
   renderizarCarrito();
 
   if (addButton) {
-    addButton.addEventListener('click', (event) => {
+    addButton.addEventListener("click", (event) => {
       event.stopPropagation();
       agregarProductoActual();
     });
   }
 }
 
-document.addEventListener('DOMContentLoaded', initCarrito);
+document.addEventListener("DOMContentLoaded", initCarrito);
