@@ -92,7 +92,6 @@ Los textos del sitio (botones, descripciones, mensajes) se redactaron siguiendo 
 ```
 ├── .vscode/
 ├── catalogo/
-│   ├── catalogo.css
 │   ├── producto.html
 │   ├── productos.html
 │   └── productos.js
