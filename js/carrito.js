@@ -16,6 +16,7 @@ function agregarProductoActual() {
   if (!producto) return;
 
   contador += 1;
+  sessionStorage.setItem('contadorCarrito', contador);
   actualizarContadorCarrito();
 }
 
@@ -33,7 +34,11 @@ function initCarrito() {
     }
   }
 
-  contador = 0;
+  const navigationEntry = performance.getEntriesByType('navigation')[0];
+  if (navigationEntry && navigationEntry.type === 'reload') {
+    sessionStorage.removeItem('contadorCarrito');
+  }
+  contador = Number(sessionStorage.getItem('contadorCarrito')) || 0;
   actualizarContadorCarrito();
 
   if (addButton) {
