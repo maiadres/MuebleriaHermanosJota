@@ -117,4 +117,4 @@ Los textos del sitio (botones, descripciones, mensajes) se redactaron siguiendo 
 
 ---
 
-*Proyecto académico — Hermanos Jota © 2026*
+
