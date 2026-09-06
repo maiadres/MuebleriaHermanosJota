@@ -102,6 +102,9 @@ Los textos del sitio (botones, descripciones, mensajes) se redactaron siguiendo 
 │   └── style.css
 ├── imagenes/
 ├── js/
+├   ├── carrito.js
+│   ├── contacto.js
+│   └── index.js
 ├── .gitignore
 ├── contacto.html
 └── index.html
