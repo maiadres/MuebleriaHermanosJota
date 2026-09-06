@@ -21,14 +21,14 @@ El proyecto consta de las siguientes páginas y funcionalidades:
 ### 🏠 Página de Inicio (`index.html`)
 - Header con logo y navegación.
 - Hero Banner principal.
-- Sección de 3–4 productos destacados, cargados dinámicamente.
+- Sección de 3 productos destacados, cargados dinámicamente.
 - Footer con información básica.
 
 ### 🛋️ Catálogo de Productos (`productos.html`)
 - Grilla de tarjetas de productos.
 - Datos obtenidos desde un archivo JavaScript local.
 - Cada producto enlaza a su página de detalle.
-- Campo de búsqueda (funcionalidad bonus).
+- Campo de búsqueda.
 
 ### 🔍 Detalle de Producto (`producto.html`)
 - Imagen grande y descripción completa del producto.
@@ -62,13 +62,13 @@ El diseño se desarrolló a partir del **manual de marca** de Hermanos Jota, que
 ### Paleta de colores
 Se respetó estrictamente la paleta oficial de la marca:
 
-| Color | Nombre | Código | Uso en el sitio |
-|---|---|---|---|
-| 🟤 | Siena Tostado | `#A0522D` | Títulos, botones primarios, footer, marca |
-| 🟢 | Verde Salvia | `#87A96B` | Acento en etiquetas (sustentabilidad) |
-| 🟡 | Alabastro Cálido | `#F5E6D3` | Fondo general del sitio |
-| 🟠 | Vara de Oro | `#D4A437` | Detalles, bordes, líneas divisorias |
-| 🌸 | Rosa Polvoriento | `#C47A6D` | Acentos suaves |
+ Nombre | Código | Uso en el sitio |
+---|---|---|
+Siena Tostado | `#A0522D` | Títulos, botones primarios, footer, marca |
+Verde Salvia | `#87A96B` | Acento en etiquetas (sustentabilidad) |
+Alabastro Cálido | `#F5E6D3` | Fondo general del sitio |
+Vara de Oro | `#D4A437` | Detalles, bordes, líneas divisorias |
+Rosa Polvoriento | `#C47A6D` | Acentos suaves |
 
 ### Tipografía
 Siguiendo la guía de uso tipográfico del manual:
