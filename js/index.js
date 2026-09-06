@@ -22,7 +22,7 @@ productosDestacados.forEach(producto => {
     tarjetasHTML += `
         <article class="tarjeta-mueble">
             <div class="contenedor-imagen">
-                <img src="${producto.imagen}" alt="${producto.titulo}" style="width: 100%; height: auto; border-radius: 4px;">
+                <img src="${producto.imagen}" alt="${producto.titulo}">
             </div>
             <h3>${producto.titulo}</h3>
         </article>
