@@ -1,6 +1,6 @@
 # Ecommerce Hermanos Jota
 
-Sitio web para la mueblería **Hermanos Jota**, desarrollado como proyecto grupal. La página presenta la marca, su catálogo de productos y un formulario de contacto, siguiendo los lineamientos visuales definidos en el manual de marca.
+Sitio web para la mueblería **Hermanos Jota**. La página presenta la marca, su catálogo de productos y un formulario de contacto, siguiendo los lineamientos visuales definidos en el manual de marca.
 
 ---
 
