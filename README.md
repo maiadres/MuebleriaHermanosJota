@@ -10,7 +10,7 @@ Sitio web para la mueblería **Hermanos Jota**. La página presenta la marca, su
 - Drescher, Maia.
 - Huanca, Nick
 - Hernandez, Wanda.
-- 
+- Madrigal, Valentina.
 
 ---
 
