@@ -229,6 +229,36 @@ body {
     line-height: 1.6;
 }
 
+.product-specs,
+.detail-specs-list {
+    margin: 0.5rem 0;
+    border-top: 1px solid var(--linea);
+    padding-top: 0.75rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.45rem;
+}
+
+.product-spec-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.82rem;
+    line-height: 1.3;
+}
+
+.spec-label {
+    color: var(--text-soft);
+    font-weight: 600;
+}
+
+.spec-value {
+    color: var(--text);
+    font-weight: 400;
+    text-align: right;
+    max-width: 65%;
+}
+
 .product-meta {
     margin-top: auto;
     display: flex;
