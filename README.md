@@ -118,6 +118,8 @@ Los textos del sitio (botones, descripciones, mensajes) se redactaron siguiendo 
 2. Abrí el archivo `index.html` en tu navegador (o usá una extensión tipo *Live Server* en VSCode para evitar problemas de carga de archivos locales).
 3. Navegá entre las secciones desde el header.
 
+## Deployed en Github Pages 
+- Link: https://maiadres.github.io/MuebleriaHermanosJota/
 ---
 
 
