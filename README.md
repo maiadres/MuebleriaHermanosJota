@@ -7,7 +7,7 @@ Sitio web para la mueblería **Hermanos Jota**, desarrollado como proyecto grupa
 ## Integrantes
 
 - 
-- 
+- Drescher, Maia
 - 
 - 
 - 
