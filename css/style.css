@@ -414,6 +414,20 @@ footer p {
     width: 100%;
   }
 
+  .hero-contenido {
+    align-items: center;
+  }
+
+  .hero-contenido h1,
+  .hero-contenido p {
+    text-align: center;
+  }
+
+  .hero-acciones,
+  .hero-etiquetas {
+    justify-content: center;
+  }
+
   .hero-imagen {
     height: auto;
     min-height: 0;

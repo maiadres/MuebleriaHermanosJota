@@ -1,38 +1,44 @@
-const CARRITO_KEY = 'hj_carrito_count';
+let contador = 0;
 
-function obtenerContadorCarrito() {
-  return parseInt(localStorage.getItem(CARRITO_KEY), 10) || 0;
-}
-
-function actualizarContadorCarrito(cantidad) {
-  localStorage.setItem(CARRITO_KEY, cantidad);
+function actualizarContadorCarrito() {
   const badge = document.querySelector('.carrito-contador');
   if (badge) {
-    badge.textContent = cantidad;
-    badge.hidden = cantidad === 0;
+    badge.textContent = contador;
+    badge.hidden = contador === 0;
   }
+}
+
+function agregarProductoActual() {
+  const productId = Number(new URLSearchParams(window.location.search).get('id'));
+  if (!productId || typeof productos === 'undefined') return;
+
+  const producto = productos.find((item) => item.id === productId);
+  if (!producto) return;
+
+  contador += 1;
+  actualizarContadorCarrito();
 }
 
 function initCarrito() {
   const carritoHeader = document.querySelector('.carrito-header');
-  if (!carritoHeader) return;
+  const addButton = document.querySelector('.btn-primary');
 
-  let badge = carritoHeader.querySelector('.carrito-contador');
-  if (!badge) {
-    badge = document.createElement('span');
-    badge.className = 'carrito-contador';
-    badge.setAttribute('aria-label', 'Cantidad de productos en el carrito');
-    carritoHeader.appendChild(badge);
+  if (carritoHeader) {
+    let badge = carritoHeader.querySelector('.carrito-contador');
+    if (!badge) {
+      badge = document.createElement('span');
+      badge.className = 'carrito-contador';
+      badge.setAttribute('aria-label', 'Cantidad de productos en el carrito');
+      carritoHeader.appendChild(badge);
+    }
   }
 
-  const cantidad = obtenerContadorCarrito();
-  badge.textContent = cantidad;
-  badge.hidden = cantidad === 0;
+  contador = 0;
+  actualizarContadorCarrito();
 
-  carritoHeader.addEventListener('click', () => {
-    const nuevaCantidad = obtenerContadorCarrito() + 1;
-    actualizarContadorCarrito(nuevaCantidad);
-  });
+  if (addButton) {
+    addButton.addEventListener('click', agregarProductoActual);
+  }
 }
 
 document.addEventListener('DOMContentLoaded', initCarrito);

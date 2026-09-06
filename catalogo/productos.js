@@ -254,10 +254,6 @@ function renderProductGrid(items) {
               <span class="product-tag">${producto.categoria}</span>
               <h2>${producto.nombre}</h2>
               <p>${producto.descripcion}</p>
-              
-              <div class="product-specs">
-                ${getSpecsHTML(producto)}
-              </div>
 
               <div class="product-meta">
                 <span class="product-price">${formatPrice(producto.precio)}</span>
