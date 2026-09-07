@@ -299,6 +299,13 @@ body {
     font-weight: 500;
 }
 
+.catalogo-loading {
+    margin: 2rem 0;
+    text-align: center;
+    color: var(--text-soft);
+    font-weight: 500;
+}
+
 .detail-breadcrumb {
     display: flex;
     align-items: center;
