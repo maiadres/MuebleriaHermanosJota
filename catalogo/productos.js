@@ -219,7 +219,7 @@ function normalizeText(value = "") {
 
 function cargarProductos() {
   return new Promise((resolve) => {
-    setTimeout(() => resolve(productos), 3000);
+    setTimeout(() => resolve(productos), 1000);
   });
 }
 
