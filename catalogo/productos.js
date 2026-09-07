@@ -217,6 +217,12 @@ function normalizeText(value = "") {
     .replace(/[\u0300-\u036f]/g, "");
 }
 
+function cargarProductos() {
+  return new Promise((resolve) => {
+    setTimeout(() => resolve(productos), 1000);
+  });
+}
+
 function getSpecsHTML(producto) {
   const camposExcluidos = ["id", "nombre", "categoria", "precio", "imagen", "descripcion", "descripcionLarga"];
   let html = "";
@@ -270,14 +276,18 @@ function renderProductGrid(items) {
   if (emptyState) emptyState.hidden = items.length > 0;
 }
 
-function setupCatalogSearch() {
+async function setupCatalogSearch() {
   const input = document.querySelector(".catalogo-search");
+  const loading = document.querySelector(".catalogo-loading");
   if (!input) return;
+
+  const productosCargados = await cargarProductos();
+  if (loading) loading.hidden = true;
 
   input.addEventListener("input", (event) => {
     const term = normalizeText(event.target.value.trim());
 
-    const filtered = productos.filter((producto) => {
+    const filtered = productosCargados.filter((producto) => {
       const nombre = normalizeText(producto.nombre);
       const categoria = normalizeText(producto.categoria);
       return nombre.includes(term) || categoria.includes(term);
@@ -286,7 +296,7 @@ function setupCatalogSearch() {
     renderProductGrid(filtered);
   });
 
-  renderProductGrid(productos);
+  renderProductGrid(productosCargados);
 }
 
 function setupDetailPage() {
