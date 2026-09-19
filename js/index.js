@@ -16,17 +16,28 @@ const productosDestacados = [
 
 // Lógica para inyectar las tarjetas 
 const contenedor = document.querySelector('.lista-productos');
-let tarjetasHTML = '';
 
-productosDestacados.forEach(producto => {
-    tarjetasHTML += `
-        <article class="tarjeta-mueble">
-            <div class="contenedor-imagen">
-                <img src="${producto.imagen}" alt="${producto.titulo}">
-            </div>
-            <h3>${producto.titulo}</h3>
-        </article>
-    `;
-});
+if (contenedor) {
+    const fragmento = document.createDocumentFragment();
 
-contenedor.innerHTML = tarjetasHTML;
+    productosDestacados.forEach(producto => {
+        const tarjeta = document.createElement('article');
+        tarjeta.className = 'tarjeta-mueble';
+
+        const contenedorImagen = document.createElement('div');
+        contenedorImagen.className = 'contenedor-imagen';
+
+        const imagen = document.createElement('img');
+        imagen.src = producto.imagen;
+        imagen.alt = producto.titulo;
+        contenedorImagen.appendChild(imagen);
+
+        const titulo = document.createElement('h3');
+        titulo.textContent = producto.titulo;
+
+        tarjeta.append(contenedorImagen, titulo);
+        fragmento.appendChild(tarjeta);
+    });
+
+    contenedor.replaceChildren(fragmento);
+}
