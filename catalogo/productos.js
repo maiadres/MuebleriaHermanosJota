@@ -223,22 +223,26 @@ function cargarProductos() {
   });
 }
 
-function getSpecsHTML(producto) {
+function createSpecsFragment(producto) {
   const camposExcluidos = ["id", "nombre", "categoria", "precio", "imagen", "descripcion", "descripcionLarga"];
-  let html = "";
+  const fragmento = document.createDocumentFragment();
 
   for (const [clave, valor] of Object.entries(producto)) {
     if (!camposExcluidos.includes(clave)) {
       const etiqueta = diccionarioAtributos[clave] || clave;
-      html += `
-        <div class="product-spec-row">
-          <span class="spec-label">${etiqueta}</span>
-          <span class="spec-value">${valor}</span>
-        </div>
-      `;
+      const fila = document.createElement("div");
+      fila.className = "product-spec-row";
+      const etiquetaElemento = document.createElement("span");
+      etiquetaElemento.className = "spec-label";
+      etiquetaElemento.textContent = etiqueta;
+      const valorElemento = document.createElement("span");
+      valorElemento.className = "spec-value";
+      valorElemento.textContent = valor;
+      fila.append(etiquetaElemento, valorElemento);
+      fragmento.appendChild(fila);
     }
   }
-  return html;
+  return fragmento;
 }
 
 function renderProductGrid(items) {
@@ -248,29 +252,45 @@ function renderProductGrid(items) {
 
   if (!grid) return;
 
- grid.innerHTML = items
-    .map(
-      (producto) => `
-        <article class="product-card">
-          <a href="producto.html?id=${producto.id}" class="product-card-link" aria-label="Ver detalle de ${producto.nombre}">
-            <div class="product-image-wrap">
-              <img src="${producto.imagen}" alt="${producto.nombre}" loading="lazy" />
-            </div>
-            <div class="product-card-body">
-              <span class="product-tag">${producto.categoria}</span>
-              <h2>${producto.nombre}</h2>
-              <p>${producto.descripcion}</p>
-
-              <div class="product-meta">
-                <span class="product-price">${formatPrice(producto.precio)}</span>
-                <span class="product-cta">Ver pieza</span>
-              </div>
-            </div>
-          </a>
-        </article>
-      `,
-    )
-    .join("");
+  const fragmento = document.createDocumentFragment();
+  items.forEach((producto) => {
+    const article = document.createElement("article");
+    article.className = "product-card";
+    const link = document.createElement("a");
+    link.href = `producto.html?id=${encodeURIComponent(producto.id)}`;
+    link.className = "product-card-link";
+    link.setAttribute("aria-label", `Ver detalle de ${producto.nombre}`);
+    const imageWrap = document.createElement("div");
+    imageWrap.className = "product-image-wrap";
+    const image = document.createElement("img");
+    image.src = producto.imagen;
+    image.alt = producto.nombre;
+    image.loading = "lazy";
+    imageWrap.appendChild(image);
+    const body = document.createElement("div");
+    body.className = "product-card-body";
+    const tag = document.createElement("span");
+    tag.className = "product-tag";
+    tag.textContent = producto.categoria;
+    const name = document.createElement("h2");
+    name.textContent = producto.nombre;
+    const description = document.createElement("p");
+    description.textContent = producto.descripcion;
+    const meta = document.createElement("div");
+    meta.className = "product-meta";
+    const productPrice = document.createElement("span");
+    productPrice.className = "product-price";
+    productPrice.textContent = formatPrice(producto.precio);
+    const cta = document.createElement("span");
+    cta.className = "product-cta";
+    cta.textContent = "Ver pieza";
+    meta.append(productPrice, cta);
+    body.append(tag, name, description, meta);
+    link.append(imageWrap, body);
+    article.appendChild(link);
+    fragmento.appendChild(article);
+  });
+  grid.replaceChildren(fragmento);
 
   if (count) count.textContent = String(items.length);
   if (emptyState) emptyState.hidden = items.length > 0;
@@ -323,7 +343,7 @@ function setupDetailPage() {
     price.textContent = "—";
     image.src = "../imagenes/logo.svg";
     image.alt = "Logo de Hermanos Jota";
-    if (specsContainer) specsContainer.innerHTML = "";
+    if (specsContainer) specsContainer.replaceChildren();
     return;
   }
 
@@ -336,7 +356,7 @@ function setupDetailPage() {
   description.textContent = selectedProduct.descripcionLarga || selectedProduct.descripcion;
 
   if (specsContainer) {
-    specsContainer.innerHTML = getSpecsHTML(selectedProduct);
+    specsContainer.replaceChildren(createSpecsFragment(selectedProduct));
   }
 
   document.title = `${selectedProduct.nombre} | Hermanos Jota`;

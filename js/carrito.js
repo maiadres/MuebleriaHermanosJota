@@ -42,34 +42,52 @@ function renderizarCarrito() {
   if (!items || !resumen) return;
 
   if (carrito.length === 0) {
-    items.innerHTML = '<p class="carrito-vacio">Tu carrito está vacío.</p>';
+    const emptyMessage = document.createElement("p");
+    emptyMessage.className = "carrito-vacio";
+    emptyMessage.textContent = "Tu carrito está vacío.";
+    items.replaceChildren(emptyMessage);
     resumen.querySelector(".carrito-total").textContent = formatPrice(0);
     resumen.hidden = true;
     actualizarContadorCarrito();
     return;
   }
 
-  items.innerHTML = carrito
-    .map(
-      (producto) => `
-    <article class="carrito-item">
-      <img src="${producto.imagen}" alt="${producto.nombre}" class="carrito-item-imagen">
-      <div class="carrito-item-info">
-        <h3>${producto.nombre}</h3>
-        <p>${producto.cantidad} × ${formatPrice(producto.precio)}</p>
-        <div class="carrito-cantidad" aria-label="Cantidad de ${producto.nombre}">
-          <button type="button" class="carrito-cantidad-btn" data-product-id="${producto.id}" data-cantidad-change="-1" aria-label="Quitar una unidad de ${producto.nombre}">−</button>
-          <span>${producto.cantidad}</span>
-          <button type="button" class="carrito-cantidad-btn" data-product-id="${producto.id}" data-cantidad-change="1" aria-label="Agregar una unidad de ${producto.nombre}">+</button>
-        </div>
-      </div>
-      <button type="button" class="carrito-eliminar" data-product-id="${producto.id}" aria-label="Eliminar ${producto.nombre}">
-        <span aria-hidden="true">&times;</span>
-      </button>
-    </article>
-  `,
-    )
-    .join("");
+  const fragmento = document.createDocumentFragment();
+  carrito.forEach((producto) => {
+    const article = document.createElement("article");
+    article.className = "carrito-item";
+    const image = document.createElement("img");
+    image.src = producto.imagen;
+    image.alt = producto.nombre;
+    image.className = "carrito-item-imagen";
+    const info = document.createElement("div");
+    info.className = "carrito-item-info";
+    const name = document.createElement("h3");
+    name.textContent = producto.nombre;
+    const price = document.createElement("p");
+    price.textContent = `${producto.cantidad} × ${formatPrice(producto.precio)}`;
+    const quantity = document.createElement("div");
+    quantity.className = "carrito-cantidad";
+    quantity.setAttribute("aria-label", `Cantidad de ${producto.nombre}`);
+    const decrease = crearBotonCantidad(producto, -1, "−", `Quitar una unidad de ${producto.nombre}`);
+    const amount = document.createElement("span");
+    amount.textContent = producto.cantidad;
+    const increase = crearBotonCantidad(producto, 1, "+", `Agregar una unidad de ${producto.nombre}`);
+    quantity.append(decrease, amount, increase);
+    info.append(name, price, quantity);
+    const remove = document.createElement("button");
+    remove.type = "button";
+    remove.className = "carrito-eliminar";
+    remove.dataset.productId = producto.id;
+    remove.setAttribute("aria-label", `Eliminar ${producto.nombre}`);
+    const removeIcon = document.createElement("span");
+    removeIcon.setAttribute("aria-hidden", "true");
+    removeIcon.textContent = "×";
+    remove.appendChild(removeIcon);
+    article.append(image, info, remove);
+    fragmento.appendChild(article);
+  });
+  items.replaceChildren(fragmento);
 
   const total = carrito.reduce(
     (suma, producto) => suma + producto.precio * producto.cantidad,
@@ -126,6 +144,17 @@ function eliminarProducto(productId) {
   renderizarCarrito();
 }
 
+function crearBotonCantidad(producto, cambio, texto, etiqueta) {
+  const button = document.createElement("button");
+  button.type = "button";
+  button.className = "carrito-cantidad-btn";
+  button.dataset.productId = producto.id;
+  button.dataset.cantidadChange = cambio;
+  button.setAttribute("aria-label", etiqueta);
+  button.textContent = texto;
+  return button;
+}
+
 function crearPanelCarrito(carritoHeader) {
   let badge = carritoHeader.querySelector(".carrito-contador");
   if (!badge) {
@@ -137,20 +166,34 @@ function crearPanelCarrito(carritoHeader) {
   const panel = document.createElement("aside");
   panel.className = "carrito-panel";
   panel.setAttribute("aria-label", "Carrito de compras");
-  panel.innerHTML = `
-    <div class="carrito-panel-header">
-      <h2>Tu carrito</h2>
-      <button type="button" class="carrito-cerrar" aria-label="Cerrar carrito">&times;</button>
-    </div>
-    <div class="carrito-items"></div>
-    <div class="carrito-resumen" hidden>
-      <div class="carrito-total-linea">
-        <span>Total</span>
-        <strong class="carrito-total"></strong>
-      </div>
-      <button type="button" class="carrito-finalizar">Finalizar compra</button>
-    </div>
-  `;
+  const header = document.createElement("div");
+  header.className = "carrito-panel-header";
+  const title = document.createElement("h2");
+  title.textContent = "Tu carrito";
+  const close = document.createElement("button");
+  close.type = "button";
+  close.className = "carrito-cerrar";
+  close.setAttribute("aria-label", "Cerrar carrito");
+  close.textContent = "×";
+  header.append(title, close);
+  const items = document.createElement("div");
+  items.className = "carrito-items";
+  const summary = document.createElement("div");
+  summary.className = "carrito-resumen";
+  summary.hidden = true;
+  const totalLine = document.createElement("div");
+  totalLine.className = "carrito-total-linea";
+  const totalLabel = document.createElement("span");
+  totalLabel.textContent = "Total";
+  const total = document.createElement("strong");
+  total.className = "carrito-total";
+  totalLine.append(totalLabel, total);
+  const finish = document.createElement("button");
+  finish.type = "button";
+  finish.className = "carrito-finalizar";
+  finish.textContent = "Finalizar compra";
+  summary.append(totalLine, finish);
+  panel.append(header, items, summary);
   document.body.appendChild(panel);
 
   carritoHeader.addEventListener("click", () => {
