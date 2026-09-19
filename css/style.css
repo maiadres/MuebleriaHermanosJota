@@ -1,3 +1,29 @@
+:root {
+  --siena: #A0522D;
+  --salvia: #87A96B;
+  --alabastro: #F5E6D3;
+  --oro: #D4A437;
+  --rosa: #C47A6D;
+  --text: #3D2E24;
+  --text-soft: #5C4A3A;
+  --linea: rgba(160, 82, 45, 0.12);
+  --shadow: rgba(61, 46, 36, 0.08);
+  --panel: rgba(255, 255, 255, 0.38);
+  --panel-strong: rgba(255, 255, 255, 0.62);
+  --superficie-tarjeta: #E5D5C5;
+  --fondo-etiqueta: rgba(92, 74, 58, 0.05);
+  --fondo-carrito: rgba(255, 250, 244, 0.82);
+  --sombra-carrito: rgba(61, 46, 36, 0.2);
+  --fondo-imagen-carrito: #eadbc9;
+  --fondo-control: rgba(255, 255, 255, 0.42);
+  --fondo-control-hover: rgba(212, 164, 55, 0.16);
+  --borde-carrito: rgba(160, 82, 45, 0.18);
+  --borde-panel: rgba(160, 82, 45, 0.14);
+  --borde-control: rgba(160, 82, 45, 0.24);
+  --transparente: transparent;
+  --blanco: #fff;
+}
+
 *,
 *::before,
 *::after {
@@ -9,9 +35,9 @@ body {
   font-size: 1.2rem;
   font-weight: 400;
   line-height: 1.6;
-  color: #3D2E24;
+  color: var(--text);
   margin: 0;
-  background-color: #F5E6D3;
+  background-color: var(--alabastro);
 }
 
 h1,
@@ -21,7 +47,7 @@ h3 {
   font-weight: 400;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: #A0522D;
+  color: var(--siena);
 }
 
 a {
@@ -30,8 +56,8 @@ a {
 }
 
 header {
-  background-color: #F5E6D3;
-  border-bottom: 1px solid #D4A437;
+  background-color: var(--alabastro);
+  border-bottom: 1px solid var(--oro);
   position: sticky;
   top: 0;
   z-index: 10;
@@ -65,7 +91,7 @@ header {
   font-weight: 400;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: #A0522D;
+  color: var(--siena);
   line-height: 1.2;
   white-space: nowrap;
 }
@@ -91,7 +117,7 @@ header {
   font-weight: 500;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: #5C4A3A;
+  color: var(--text-soft);
   padding: 0.625rem 1rem;
   border-radius: 2px;
   position: relative;
@@ -104,13 +130,13 @@ header {
   left: 1rem;
   right: 1rem;
   height: 1px;
-  background-color: #D4A437;
+  background-color: var(--oro);
   transform: scaleX(0);
 }
 
 .main-nav a:hover,
 .main-nav a:focus-visible {
-  color: #A0522D;
+  color: var(--siena);
 }
 
 .main-nav a:hover::after,
@@ -119,7 +145,7 @@ header {
 }
 
 .main-nav a:focus-visible {
-  outline: 2px solid #D4A437;
+  outline: 2px solid var(--oro);
   outline-offset: 2px;
 }
 
@@ -136,7 +162,7 @@ header {
 
 .hero-banner strong {
   font-weight: 500;
-  color: #A0522D;
+  color: var(--siena);
 }
 
 .hero-contenido {
@@ -175,9 +201,9 @@ header {
   font-size: 0.65rem;
   cursor: pointer;
   transition: all 0.3s ease;
-  background-color: #A0522D;
-  color: #F5E6D3;
-  border: 1px solid #A0522D;
+  background-color: var(--siena);
+  color: var(--alabastro);
+  border: 1px solid var(--siena);
 }
 
 .hero-etiquetas {
@@ -188,25 +214,25 @@ header {
 }
 
 .etiqueta {
-  background-color: rgba(92, 74, 58, 0.05);
-  border: 1px solid #E5D5C5;
+  background-color: var(--fondo-etiqueta);
+  border: 1px solid var(--superficie-tarjeta);
   padding: 0.5rem 1.2rem;
   border-radius: 20px;
   font-size: 0.66rem;
   font-weight: 500;
-  color: #5C4A3A;
+  color: var(--text-soft);
 }
 
 .hero-etiquetas .etiqueta:nth-child(1) {
-  border-left: 2px solid #87A96B;
+  border-left: 2px solid var(--salvia);
 }
 
 .hero-etiquetas .etiqueta:nth-child(2) {
-  border-left: 2px solid #A0522D;
+  border-left: 2px solid var(--siena);
 }
 
 .hero-etiquetas .etiqueta:nth-child(3) {
-  border-left: 2px solid #D4A437;
+  border-left: 2px solid var(--oro);
 }
 
 .hero-imagen {
@@ -234,7 +260,7 @@ header {
   text-align: center;
   margin: 0 0 3rem 0;
   font-family: "Playfair Display", Georgia, "Times New Roman", serif;
-  color: #A0522D;
+  color: var(--siena);
   font-weight: 400;
   font-size: 1.6rem;
   letter-spacing: 0.15em;
@@ -249,7 +275,7 @@ header {
   display: block;
   width: 60px;
   height: 2px;
-  background-color: #D4A437;
+  background-color: var(--oro);
 }
 
 .lista-productos {
@@ -259,9 +285,9 @@ header {
 }
 
 .tarjeta-mueble {
-  background-color: #E5D5C5;
-  border: 1px solid #E5D5C5;
-  border-left: 3px solid #D4A437;
+  background-color: var(--superficie-tarjeta);
+  border: 1px solid var(--superficie-tarjeta);
+  border-left: 3px solid var(--oro);
   padding: 1.25rem 1.5rem;
   border-radius: 20px;
   overflow: hidden;
@@ -273,7 +299,7 @@ header {
   font-family: "Playfair Display", Georgia, serif;
   font-weight: 700;
   font-size: 1.1rem;
-  color: #A0522D;
+  color: var(--siena);
   letter-spacing: 0.05em;
   margin: 0;
   text-align: left;
@@ -304,9 +330,9 @@ header {
 }
 
 footer {
-  background-color: #A0522D;
-  color: #F5E6D3;
-  border-top: 2px solid #D4A437;
+  background-color: var(--siena);
+  color: var(--alabastro);
+  border-top: 2px solid var(--oro);
   text-align: center;
   padding: 2rem 1.5rem;
   font-size: 0.8125rem;
@@ -329,16 +355,16 @@ footer p {
   background: none;
   border: none;
   cursor: pointer;
-  color: #5C4A3A;
+  color: var(--text-soft);
 }
 
 .carrito-header:hover,
 .carrito-header:focus-visible {
-  color: #A0522D;
+  color: var(--siena);
 }
 
 .carrito-header:focus-visible {
-  outline: 2px solid #D4A437;
+  outline: 2px solid var(--oro);
   outline-offset: 2px;
   border-radius: 2px;
 }
@@ -350,8 +376,8 @@ footer p {
   min-width: 1.25rem;
   height: 1.25rem;
   padding: 0 0.3rem;
-  background-color: #A0522D;
-  color: #F5E6D3;
+  background-color: var(--siena);
+  color: var(--alabastro);
   font-family: "Inter", system-ui, sans-serif;
   font-size: 0.65rem;
   font-weight: 700;
@@ -369,10 +395,10 @@ footer p {
   max-height: min(580px, calc(100vh - 6rem));
   overflow-y: auto;
   padding: 1.2rem;
-  border: 1px solid rgba(160, 82, 45, 0.18);
+  border: 1px solid var(--borde-carrito);
   border-radius: 18px;
-  background: rgba(255, 250, 244, 0.82);
-  box-shadow: 0 24px 60px rgba(61, 46, 36, 0.2);
+  background: var(--fondo-carrito);
+  box-shadow: 0 24px 60px var(--sombra-carrito);
   backdrop-filter: blur(18px);
   opacity: 0;
   pointer-events: none;
@@ -396,7 +422,7 @@ footer p {
 .carrito-panel-header {
   justify-content: space-between;
   padding-bottom: 0.8rem;
-  border-bottom: 1px solid rgba(160, 82, 45, 0.14);
+  border-bottom: 1px solid var(--borde-panel);
 }
 
 .carrito-panel-header h2 {
@@ -408,8 +434,8 @@ footer p {
 .carrito-cerrar,
 .carrito-eliminar {
   border: 0;
-  background: transparent;
-  color: #A0522D;
+  background: var(--transparente);
+  color: var(--siena);
   cursor: pointer;
 }
 
@@ -436,7 +462,7 @@ footer p {
   flex: 0 0 58px;
   object-fit: cover;
   border-radius: 10px;
-  background: #eadbc9;
+  background: var(--fondo-imagen-carrito);
 }
 
 .carrito-item-info {
@@ -451,7 +477,7 @@ footer p {
 
 .carrito-item-info h3 {
   overflow: hidden;
-  color: #3D2E24;
+  color: var(--text);
   font-family: "Inter", system-ui, sans-serif;
   font-size: 0.85rem;
   font-weight: 600;
@@ -463,7 +489,7 @@ footer p {
 
 .carrito-item-info p,
 .carrito-vacio {
-  color: #5C4A3A;
+  color: var(--text-soft);
   font-size: 0.78rem;
 }
 
@@ -472,7 +498,7 @@ footer p {
   align-items: center;
   gap: 0.4rem;
   margin-top: 0.35rem;
-  color: #3D2E24;
+  color: var(--text);
   font-size: 0.78rem;
   font-weight: 700;
 }
@@ -483,10 +509,10 @@ footer p {
   justify-content: center;
   width: 1.35rem;
   height: 1.35rem;
-  border: 1px solid rgba(160, 82, 45, 0.24);
+  border: 1px solid var(--borde-control);
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.42);
-  color: #A0522D;
+  background: var(--fondo-control);
+  color: var(--siena);
   cursor: pointer;
   font-size: 1rem;
   line-height: 1;
@@ -494,8 +520,8 @@ footer p {
 
 .carrito-cantidad-btn:hover,
 .carrito-cantidad-btn:focus-visible {
-  border-color: #D4A437;
-  background: rgba(212, 164, 55, 0.16);
+  border-color: var(--oro);
+  background: var(--fondo-control-hover);
 }
 
 .carrito-eliminar {
@@ -509,15 +535,15 @@ footer p {
 .carrito-cerrar:focus-visible,
 .carrito-eliminar:hover,
 .carrito-eliminar:focus-visible {
-  color: #D4A437;
+  color: var(--oro);
 }
 
 .carrito-resumen {
   display: grid;
   gap: 0.9rem;
   padding-top: 0.9rem;
-  border-top: 1px solid rgba(160, 82, 45, 0.14);
-  color: #5C4A3A;
+  border-top: 1px solid var(--borde-panel);
+  color: var(--text-soft);
   font-size: 0.85rem;
 }
 
@@ -528,7 +554,7 @@ footer p {
 }
 
 .carrito-total {
-  color: #A0522D;
+  color: var(--siena);
   font-size: 1.05rem;
 }
 
@@ -540,10 +566,10 @@ footer p {
 .carrito-finalizar {
   width: 100%;
   padding: 0.75rem 1rem;
-  border: 1px solid #A0522D;
+  border: 1px solid var(--siena);
   border-radius: 999px;
-  background: #A0522D;
-  color: #F5E6D3;
+  background: var(--siena);
+  color: var(--alabastro);
   cursor: pointer;
   font: 600 0.7rem "Inter", system-ui, sans-serif;
   letter-spacing: 0.1em;
@@ -553,8 +579,8 @@ footer p {
 
 .carrito-finalizar:hover,
 .carrito-finalizar:focus-visible {
-  background: transparent;
-  color: #A0522D;
+  background: var(--transparente);
+  color: var(--siena);
 }
 
 @media (max-width: 768px) {
